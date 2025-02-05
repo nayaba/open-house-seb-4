@@ -61,7 +61,9 @@ app.get('/listings', listingsCtrl.index)
 app.get('/listings/new', listingsCtrl.newListing)
 // app.post('/listings', listingsCtrl.createListing)
 app.post('/listings/:userId', listingsCtrl.createListing)
+app.get('/listings/:listingId', listingsCtrl.show)
 
-app.listen(port, () => {
+ 
+app.listen(port, () => { 
     console.log(`The express app is ready on port ${port}`)
 })

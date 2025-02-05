@@ -1,0 +1,14 @@
+<%- include('../partials/head') %>
+    <div class="container">
+        <div class="card mt-2" style="width: 80vw;">
+            <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="listing for <%= listing.streetAddress %>">
+            <div class="card-body">
+                <h5 class="card-title">$<%= listing.price %></h5>
+                <p class="card-text"><%= listing.streetAddress %>, <%= listing.city %></p>
+                <p class="card-text"><%= listing.size %> m/sq</p>
+                <p class="text-muted">Listed by: <%= listing.owner.username || 'Unknown' %></p>
+                <a href="/listings" class="btn btn-primary">Go back</a>
+            </div>
+        </div>
+    </div>
+<%- include('../partials/footer') %>

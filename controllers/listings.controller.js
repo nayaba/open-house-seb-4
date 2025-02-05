@@ -31,8 +31,23 @@ const createListing = async (req, res) => {
     }
 }
 
+const show = async (req, res) => {
+    try {
+        const listing = await Listing.findById(req.params.listingId).populate('owner')
+        console.log(listing)
+        res.render('listings/show.ejs', {
+            title: listing.streetAddress,
+            listing
+        })
+    } catch (error) {
+        console.log(error)
+        res.redirect('/')
+    }
+}
+
 module.exports = {
     index,
     newListing,
     createListing,
+    show,
 }
