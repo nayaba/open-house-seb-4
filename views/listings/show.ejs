@@ -7,7 +7,13 @@
                 <p class="card-text"><%= listing.streetAddress %>, <%= listing.city %></p>
                 <p class="card-text"><%= listing.size %> m/sq</p>
                 <p class="text-muted">Listed by: <%= listing.owner.username || 'Unknown' %></p>
-                <a href="/listings" class="btn btn-primary">Go back</a>
+                <a href="/listings" class="btn btn-primary">Back to Listings</a>
+                <!-- <a href="/listings/<%= listing._id %>?_method=DELETE" class="btn btn-danger">Delete</a> -->
+                 <% if (listing.owner._id.equals(user._id)) { %>
+                    <form action="/listings/<%= listing._id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                 <% } %>
             </div>
         </div>
     </div>
