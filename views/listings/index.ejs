@@ -1,0 +1,16 @@
+<%- include('../partials/head') %>
+
+    <div class="container">
+        <h1>Here's all the listings</h1>
+        <ul>
+
+            <% listings.forEach((listing) => { %>
+                <li>
+                    A listing in <%= listing.city %> owned by <%= listing.owner.username %>
+                </li>
+            <% }) %>
+                
+        </ul>
+    </div>
+
+<%- include('../partials/footer') %>
