@@ -10,7 +10,7 @@
                 <a href="/listings" class="btn btn-primary">Back to Listings</a>
                 <!-- <a href="/listings/<%= listing._id %>?_method=DELETE" class="btn btn-danger">Delete</a> -->
                  <% if (listing.owner._id.equals(user._id)) { %>
-                    <form action="/listings/<%= listing._id %>?_method=DELETE" method="POST">
+                    <form action="/listings/<%= user._id %>/<%= listing._id %>?_method=DELETE" method="POST">
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                  <% } %>
