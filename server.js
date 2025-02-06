@@ -64,7 +64,8 @@ app.get('/listings/new', listingsCtrl.newListing)
 app.post('/listings/:userId', listingsCtrl.createListing)
 app.get('/listings/:listingId', listingsCtrl.show)
 app.delete('/listings/:userId/:listingId', listingsCtrl.deleteListing)
-
+app.get('/listings/:userId/:listingId/edit', listingsCtrl.edit)
+app.put('/listings/:userId/:listingId', listingsCtrl.update)
  
 app.listen(port, () => { 
     console.log(`The express app is ready on port ${port}`)

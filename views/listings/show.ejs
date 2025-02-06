@@ -1,19 +1,22 @@
 <%- include('../partials/head') %>
     <div class="container">
         <div class="card mt-2" style="width: 80vw;">
-            <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="listing for <%= listing.streetAddress %>">
+            <img src="<%= listing.imgUrl %>" class="card-img-top" alt="listing for <%= listing.streetAddress %>">
             <div class="card-body">
                 <h5 class="card-title">$<%= listing.price %></h5>
                 <p class="card-text"><%= listing.streetAddress %>, <%= listing.city %></p>
                 <p class="card-text"><%= listing.size %> m/sq</p>
                 <p class="text-muted">Listed by: <%= listing.owner.username || 'Unknown' %></p>
+                <div class="d-flex justify-content-start gap-2">
                 <a href="/listings" class="btn btn-primary">Back to Listings</a>
                 <!-- <a href="/listings/<%= listing._id %>?_method=DELETE" class="btn btn-danger">Delete</a> -->
                  <% if (listing.owner._id.equals(user._id)) { %>
                     <form action="/listings/<%= user._id %>/<%= listing._id %>?_method=DELETE" method="POST">
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
+                    <a href="/listings/<%= user._id %>/<%= listing._id %>/edit">Edit this Listing</a>
                  <% } %>
+                </div>
             </div>
         </div>
     </div>
