@@ -83,7 +83,7 @@ const update = async (req, res) => {
             req.body,
             { new: true }
         )
-        console.log(listing)
+        res.redirect(`/listings/${listing._id}`)
     } catch (error) {
         console.log(error)
         res.redirect('/')
