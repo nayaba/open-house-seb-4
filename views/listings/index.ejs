@@ -4,7 +4,7 @@
             <% listings.forEach((listing) => { %>
 
                 <div class="card mt-2" style="width: 18rem;">
-                    <img src="<%= listing.imgUrl %>" class="card-img-top" alt="listing for <%= listing.streetAddress %>">
+                    <img src="<%= listing.imgUrl.url %>" class="card-img-top" alt="listing for <%= listing.streetAddress %>">
                     <div class="card-body">
                       <h5 class="card-title">$<%= listing.price %></h5>
                       <p class="card-text"><%= listing.streetAddress %></p>

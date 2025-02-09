@@ -1,5 +1,6 @@
 const Listing = require('../models/listing')
 
+
 const index = async (req, res) => {
     try {
         const listings = await Listing.find().populate('owner')
@@ -20,8 +21,13 @@ const newListing = (req, res) => {
 }
 
 const createListing = async (req, res) => {
+    console.log(req.file)
     try {
         // req.body.owner = req.session.user._id
+        req.body.imgUrl = {
+            url: req.file.path, // Cloudinary URL
+            cloudinary_id: req.file.filename, // Cloudinary public ID
+        }
         req.body.owner = req.params.userId
         await Listing.create(req.body)
         res.redirect('/listings')

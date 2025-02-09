@@ -20,8 +20,10 @@ const listingSchema = new mongoose.Schema({
         min: 0,
     },
     imgUrl: {
-        type: String,
-        default: 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+        url: { type: String, required: true }, // Cloudinary URL
+        cloudinary_id: { type: String, required: true }, // Public ID for deletion
+        // type: String,
+        // default: 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
